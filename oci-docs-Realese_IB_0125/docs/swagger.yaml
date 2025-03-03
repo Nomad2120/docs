@@ -1,0 +1,899 @@
+definitions:
+  model.AccountReportCategory:
+    properties:
+      amount:
+        type: number
+      nameKz:
+        type: string
+      nameRu:
+        type: string
+      number:
+        type: string
+    type: object
+  model.AccountReportsResult:
+    properties:
+      categories:
+        description: UnionType      AccountReportsUnionType `json:"unionType"`
+        items:
+          $ref: '#/definitions/model.AccountReportCategory'
+        type: array
+      osiAddress:
+        type: string
+      osiName:
+        type: string
+      period:
+        description: '"2023-11-30T09:34:03.629Z",'
+        type: string
+      signer:
+        type: string
+      unionTypeKz:
+        type: string
+      unionTypeRu:
+        type: string
+    type: object
+  model.AddDocResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.AddDocResult'
+    type: object
+  model.AddDocResult:
+    properties:
+      docTypeCode:
+        type: string
+      docTypeNameKz:
+        type: string
+      docTypeNameRu:
+        type: string
+      id:
+        type: integer
+      scan:
+        $ref: '#/definitions/model.Scan'
+    type: object
+  model.BaseResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  model.DocResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        type: string
+    type: object
+  model.ErrorResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        type: string
+    type: object
+  model.FillActResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.FillActResult'
+    type: object
+  model.FillActResult:
+    properties:
+      pdfBase64:
+        description: HTMLBase64 string `json:"htmlBase64"`
+        type: string
+    type: object
+  model.FillContractRequest:
+    properties:
+      address:
+        type: string
+      apartCount:
+        type: integer
+      createDt:
+        type: string
+      email:
+        type: string
+      fio:
+        type: string
+      id:
+        type: integer
+      idn:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      site:
+        type: string
+      tariff:
+        type: number
+    type: object
+  model.FillContractResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.FillContractResult'
+    type: object
+  model.FillContractResult:
+    properties:
+      htmlBase64:
+        type: string
+      pdfBase64:
+        type: string
+    type: object
+  model.FillDebetorResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.FillDebetorResult'
+    type: object
+  model.FillDebetorResult:
+    properties:
+      docBase64:
+        type: string
+    type: object
+  model.FillNotaryApplicationResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.FillNotaryApplicationResult'
+    type: object
+  model.FillNotaryApplicationResult:
+    properties:
+      docBase64:
+        type: string
+    type: object
+  model.FillQRPageResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        $ref: '#/definitions/model.FillQRPageResult'
+    type: object
+  model.FillQRPageResult:
+    properties:
+      pdfBase64:
+        type: string
+    type: object
+  model.Html2PdfRequest:
+    properties:
+      htmlBase64:
+        type: string
+      settings:
+        $ref: '#/definitions/model.PDFSettings'
+    type: object
+  model.PDFSettings:
+    properties:
+      dpi:
+        description: Change the dpi explicitly (this has no effect on X11 based systems)
+        example: 300
+        type: integer
+      encoding:
+        description: Set the default text encoding, for input
+        example: utf-8
+        type: string
+      footerFontSize:
+        description: Set footer font size (default 12)
+        example: 12
+        type: integer
+      grayscale:
+        description: PDF will be generated in grayscale
+        example: false
+        type: boolean
+      imageDpi:
+        description: When embedding images scale them down to this dpi (default 600)
+        example: 600
+        type: integer
+      imageQuality:
+        description: When jpeg compressing images use this quality (default 94)
+        example: 94
+        type: integer
+      marginBottom:
+        description: Set the page bottom margin
+        example: 10
+        type: integer
+      marginLeft:
+        description: Set the page left margin (default 10mm)
+        example: 10
+        type: integer
+      marginRight:
+        description: Set the page right margin (default 10mm)
+        example: 10
+        type: integer
+      marginTop:
+        description: Set the page top margin
+        example: 10
+        type: integer
+      minimumFontSize:
+        description: Minimum font size
+        type: integer
+      noCollate:
+        description: Do not collate when printing multiple copies (default collate)
+        example: false
+        type: boolean
+      noPdfCompression:
+        description: Do not use lossless compression on pdf objects
+        example: false
+        type: boolean
+      orientation:
+        description: Set orientation to Landscape or Portrait (default Portrait)
+        example: Portrait
+        type: string
+      pageHeight:
+        description: Page height
+        type: integer
+      pageSize:
+        description: 'Set paper size to: A4, Letter, etc. (default A4)'
+        example: A4
+        type: string
+      pageWidth:
+        description: Page width
+        type: integer
+      zoom:
+        description: Use this zoom factor (default 1)
+        example: 1
+        type: number
+    type: object
+  model.ReportResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        type: string
+    type: object
+  model.Scan:
+    properties:
+      fileName:
+        type: string
+      id:
+        type: integer
+    type: object
+  model.SignContractResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      result:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/act/work-completion/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Заполнение шаблона акта.
+      operationId: FillAct
+      parameters:
+      - description: ид акта
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.FillActResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Заполнение шаблона акта.
+      tags:
+      - Акты
+  /api/act/work-completion/{id}/sign:
+    put:
+      consumes:
+      - application/json
+      description: Сохранение подписанного акта.
+      operationId: SaveAct
+      parameters:
+      - description: ид акта
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: расширение файла
+        in: query
+        name: extension
+        required: true
+        type: string
+      - description: документ base64
+        in: body
+        name: docBase64
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: модель
+          schema:
+            $ref: '#/definitions/model.BaseResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Сохранение подписанного акта.
+      tags:
+      - Акты
+  /api/contract:
+    post:
+      consumes:
+      - application/json
+      description: Заполнение шаблона договора офферты.
+      operationId: FillContract
+      parameters:
+      - description: модель
+        in: body
+        name: Model
+        required: true
+        schema:
+          $ref: '#/definitions/model.FillContractRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.FillContractResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Заполнение шаблона договора офферты.
+      tags:
+      - Contract
+  /api/contract/{id}/sign:
+    put:
+      consumes:
+      - application/json
+      description: Подписание договора офферты.
+      operationId: SignContract
+      parameters:
+      - description: id заявки
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: документ base64
+        in: body
+        name: docBase64
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: модель
+          schema:
+            $ref: '#/definitions/model.SignContractResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Подписание договора офферты.
+      tags:
+      - Contract
+  /api/contract/osi/{id}/sign:
+    post:
+      consumes:
+      - application/json
+      description: Подписание нового договора офферты.
+      operationId: SignOsiContract
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: документ base64
+        in: body
+        name: docBase64
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: модель
+          schema:
+            $ref: '#/definitions/model.AddDocResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Подписание нового договора офферты.
+      tags:
+      - Contract
+  /api/doc:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Получение списка всех видов документов.
+      operationId: GetDoc
+      parameters:
+      - description: name search by id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.DocResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получение списка всех видов документов.
+      tags:
+      - GetDoc
+  /api/invoices/qrpage/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Заполнение шаблона акта.
+      operationId: FillQRPage
+      parameters:
+      - description: ОСИ ИД
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.FillQRPageResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Заполнение шаблона акта.
+      tags:
+      - Квитанции
+  /api/notification/debetor/{abonentId}:
+    get:
+      consumes:
+      - application/json
+      description: Заполнение шаблона Уведомления должнику.
+      operationId: FillNotficationDebetor
+      parameters:
+      - description: id Абонента
+        in: path
+        name: abonentId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.FillDebetorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Заполнение шаблона Уведомления должнику.
+      tags:
+      - Уведомления
+  /api/notification/notary/{abonentId}:
+    get:
+      consumes:
+      - application/json
+      description: Заполнение шаблона Уведомления нотариусу.
+      operationId: FillNotficationNotary
+      parameters:
+      - description: id Абонента
+        in: path
+        name: abonentId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.FillNotaryApplicationResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Заполнение шаблона Уведомления нотариусу.
+      tags:
+      - Уведомления
+  /api/report/abonents/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Получить таблицу помещений.
+      operationId: GetOSIAbonentsReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получить таблицу помещений.
+      tags:
+      - Отчеты
+  /api/report/accounts/monthly:
+    post:
+      consumes:
+      - application/json
+      description: Формирование ежемесячного отчета по счетам.
+      operationId: GetAccountsMonthlyReport
+      parameters:
+      - description: язык отчета
+        in: query
+        name: language
+        type: string
+      - description: модель отчета
+        in: body
+        name: Model
+        required: true
+        schema:
+          $ref: '#/definitions/model.AccountReportsResult'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.ReportResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Формирование ежемесячного отчета по счетам.
+      tags:
+      - Отчеты
+  /api/report/debts/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Получение отчета  по долгам за текущий месяц.
+      operationId: GetDebtsReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: дата начала
+        in: query
+        name: begin
+        required: true
+        type: string
+      - description: дата окончания
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получение отчета по долгам за текущий месяц.
+      tags:
+      - Отчеты
+  /api/report/fixes/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Корректировки по всем абонентам и услугам ОСИ за период.
+      operationId: GetFixesReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: дата начала
+        in: query
+        name: begin
+        required: true
+        type: string
+      - description: дата окончания
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Корректировки по всем абонентам и услугам ОСИ за период.
+      tags:
+      - Отчеты
+  /api/report/osv/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Получение отчета сальдо за текущий месяц.
+      operationId: GetOSVReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: дата начала
+        in: query
+        name: begin
+        required: true
+        type: string
+      - description: дата окончания
+        in: query
+        name: end
+        required: true
+        type: string
+      - description: для абонента
+        in: query
+        name: forAbonent
+        type: boolean
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получение отчета сальдо за текущий месяц.
+      tags:
+      - Отчеты
+  /api/report/osv/{id}/abonent/{abonentId}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Получение отчета сальдо по абоненту за все периоды.
+      operationId: GetAbonentOSVReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: id Абонента
+        in: path
+        name: abonentId
+        required: true
+        type: integer
+      - description: Номер помещения
+        in: query
+        name: flat
+        required: true
+        type: string
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получение отчета сальдо по абоненту за все периоды.
+      tags:
+      - Отчеты
+  /api/report/payments/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Получение реестра платежей за период.
+      operationId: GetPaymentsReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: дата начала
+        in: query
+        name: begin
+        required: true
+        type: string
+      - description: дата окончания
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Получение реестра платежей за период.
+      tags:
+      - Отчеты
+  /api/report/payments/orders/{id}:
+    get:
+      consumes:
+      - application/json
+      - application/octet-stream
+      description: Свод платежных поручений по ОСИ за период.
+      operationId: GetPaymentOrdersReport
+      parameters:
+      - description: id OSI
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: дата начала
+        in: query
+        name: begin
+        required: true
+        type: string
+      - description: дата окончания
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Свод платежных поручений по ОСИ за период.
+      tags:
+      - Отчеты
+  /docs/html2pdf:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Преобразовать html в pdf
+      operationId: Html2Pdf
+      parameters:
+      - description: модель
+        in: body
+        name: Model
+        required: true
+        schema:
+          $ref: '#/definitions/model.Html2PdfRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: File Base64
+          schema:
+            $ref: '#/definitions/model.DocResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Преобразовать html в pdf
+      tags:
+      - Docs
+  /pki/sign/wsse:
+    post:
+      consumes:
+      - text/plain
+      description: Подписание WSSE.
+      operationId: SignWSSE
+      parameters:
+      - description: ID элемента
+        in: query
+        name: signNodeId
+        required: true
+        type: string
+      - description: Имя хранилища сертификатов
+        in: query
+        name: alias
+        required: true
+        type: string
+      - description: XML plain text
+        in: body
+        name: data
+        required: true
+        schema:
+          type: string
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: подписанный xml
+          schema:
+            type: string
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/model.ErrorResponse'
+      summary: Подписание WSSE.
+      tags:
+      - PKI
+swagger: "2.0"

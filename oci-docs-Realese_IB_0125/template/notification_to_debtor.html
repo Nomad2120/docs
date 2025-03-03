@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Уведомление должнику</title>
+  </head>
+  <style type="text/css">
+    body {
+      font-family: "Arial", sans-serif;
+    }
+    table {
+      width: 100%;
+    }
+    p {
+      margin-bottom: -10px;
+      text-indent: 30px;
+    }
+    th {
+      font-weight: 500;
+    }
+    .container {
+      margin: 60px 80px 60px 160px;
+    }
+
+    .no_double {
+      border-collapse: collapse;
+    }
+
+    .col-t1-1 {
+      width: 70%;
+    }
+    .col-t1-2 {
+      width: 30%;
+    }
+    /* .col-t1-2 {
+      text-align: center;
+    }
+    .col-t1-2-right {
+      text-align: right;
+    } */
+
+    .col-t2-1 {
+      width: 70%;
+    }
+    .col-t2-2 {
+      width: 3%;
+      vertical-align: top;
+      text-align: left;
+      line-height: 2;
+    }
+    .col-t2-3 {
+      width: 27%;
+      vertical-align: top;
+      text-align: left;
+      line-height: 2;
+    }
+
+    .col-t3-1 {
+      width: 30%;
+    }
+    .col-t3-2 {
+      width: 30%;
+    }
+    .col-t3-3 {
+      width: 30%;
+    }
+
+    .col-t4-1 {
+      width: 30%;
+    }
+
+    .col-t5-1 {
+      width: 15%;
+    }
+    .col-t5-2 {
+      width: 15%;
+    }
+
+    .col-bold {
+      font-weight: bold;
+    }
+
+    .col-underline {
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+    }
+
+    .col-italic {
+      font-style: italic;
+    }
+    .col-border-bottom {
+      border-bottom: 1px solid black;
+    }
+    .col-border-bottom-bold {
+      border-bottom: 2px solid black;
+    }
+
+    .col-border-all {
+      border: 1px solid black;
+    }
+
+    .col-no-border {
+      border: 0;
+    }
+
+    .col-text-center {
+      text-align: center;
+    }
+
+    .col-text-right {
+      text-align: right;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <!-- <p>Приложение Уведомление должнику</p> -->
+      <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-t1-2 col-bold">Собственнику/владельцу квартиры №</td>
+          <td class="col-underline col-bold">{{ .Flat }}</td>
+        </tr>
+      </table>
+      <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+          <td class="col-t2-1"></td>
+          <td class="col-t2-2 col-bold">Адрес:</td>
+          <td class="col-t2-3 col-bold col-underline">{{ .Address }}</td>
+        </tr>
+        <!-- <tr style="height: 30px">
+          <td class="col-t2-1"></td>
+          <td class="col-t2-2 col-bold"></td>
+          <td class="col-border-bottom-bold col-bold"></td>
+        </tr> -->
+      </table>
+      <br /><br />
+      <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+          <td class="col-t3-1"></td>
+          <td class="col-t3-2 col-text-center">УВЕДОМЛЕНИЕ № {{ .Number }}</td>
+          <td class="col-t3-3"></td>
+        </tr>
+        <tr>
+          <td class="col-t3-1"></td>
+          <td class="col-t3-2 col-text-center">От «{{ getDay }}» {{ getMonth }} {{ getYear }} г.</td>
+          <td class="col-t3-3"></td>
+        </tr>
+      </table>
+      <br /><br />
+      <p>
+        ОСИ «<span class="col-underline">{{ .OsiName }}</span>» доводит до Вашего сведения, что Ваша задолженность
+        по состоянию на конец {{ getMonth }} {{ getYear }} года составила:
+      </p>
+      {{range $idx, $item := .ServicesDebts}}
+      <p>
+        - {{ $item.ServiceName }} составляет {{ $item.Saldo }} тг. ({{
+        $item.SaldoString }})
+      </p>
+      {{end}}
+
+      <p>Таким образом, вы попадаете в разряд неплательщиков.</p>
+      <p>
+        Согласно Закону «О жилищных отношениях» ст.50, пункту 1 «Собственник
+        квартиры, нежилого помещения несет бремя содержания принадлежащих ему
+        квартиры, нежилого помещения, а также общего имущества объекта
+        кондоминиума».
+      </p>
+      <p>
+        Ст.34, пункт 7 «При непогашении собственником квартиры, нежилого
+        помещения задолженности после установленной даты платежа орган
+        управления объекта кондоминиума вправе обратиться к нотариусу или в суд
+        о принудительном взыскании задолженности»
+      </p>
+      <p>
+        Ст.2, пункт 13 «Расходы на управление объектом кондоминиума и содержание
+        общего имущества объекта кондоминиума – обязательные затраты
+        собственников квартир, нежилых помещений»
+      </p>
+      <p>
+        Ст.2, пункт 15-2 «Расходы на капитальный ремонт общего имущества объекта
+        кондоминиума – обязательные ежемесячные взносы собственников квартир,
+        нежилых помещений на капитальный ремонт общего имущества объекта
+        кондоминиума или отдельных его частей.
+      </p>
+      <p>
+        В случае непогашения Вами вышеуказанной задолженности в течение 15 дней
+        со дня получения Вами настоящего уведомления, мы будем вынуждены
+        обратиться к нотариусу для совершения исполнительной надписи о взыскании
+        задолженности на основании подпункта 6) пункта 2 статьи 92-1 Закона
+        Республики Казахстан «О нотариате». А также в суд с исковым заявлением о
+        взыскании имеющейся задолженности с отнесением на Вас нотариальных и
+        судебных расходов, связанных с рассмотрением дела.
+      </p>
+      <p>Убедительно просим Вас погасить задолженность.</p>
+      <p>По возникшим вопросам обращаться по телефону: {{ .ContactPhone }}</p>
+
+      <br /><br />
+      <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+          <td class="col-t4-1 col-bold">Председатель: {{ .OsiChairman }}</td>
+        </tr>
+      </table>
+      <br />
+      <table cellpadding="2" cellspacing="2" border="0">
+        <tr>
+          <td class="col-t4-1 col-bold">ОСИ: «{{ .OsiName }}»</td>
+        </tr>
+      </table>
+      <br />
+      <div class="col-bold">___________________ (________________)</div>
+    </div>
+  </body>
+</html>

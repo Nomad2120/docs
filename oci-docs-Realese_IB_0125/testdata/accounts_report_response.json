@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "message": "string",
+    "result": {
+      "period": "2023-12-01T16:59:15.381Z",
+      "osiAddress": "OCI Address",
+      "unionTypeRu": "OCI",
+      "unionTypeKz": "string",
+      "unionType": {
+        "id": 0,
+        "nameRu": "Рога и копыта",
+        "nameKz": "string"
+      },
+      "categories": [
+        {
+          "number": "1",
+          "nameRu": "<strong>Остаток на текущем счете в банке</strong> второго уровня (наименование банка), на который перечисляются взносы (платежи) собственников квартир, нежилых помещений",
+          "nameKz": "string",
+          "amount": 1200
+        }
+      ]
+    }
+  }

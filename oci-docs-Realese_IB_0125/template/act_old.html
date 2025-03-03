@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style type="text/css">
+    body {
+      font-family: "Arial", sans-serif;
+    }
+    table {
+      width: 100%;
+    }
+    th {
+      font-weight: 500;
+    }
+    .container {
+      margin: 40px;
+    }
+
+    .no_double {
+      border-collapse: collapse;
+    }
+
+    .col-t1-1 {
+      width: 80%;
+    }
+
+    .col-bold {
+      font-weight: bold;
+    }
+
+    .col-italic {
+      font-style: italic;
+    }
+
+    .col-yellow {
+      /* background-color: yellow; */
+    }
+
+    .col-border-bottom {
+      border-bottom: 1px solid black;
+    }
+
+    .col-border-all {
+      border: 1px solid black;
+    }
+
+    .col-no-border {
+      border: 0;
+    }
+
+    .col-text-center {
+      text-align: center;
+    }
+
+    .col-text-right {
+      text-align: right;
+    }
+
+    .col-t2-1 {
+      width: 10%;
+    }
+    .col-t2-2 {
+      width: 62%;
+      text-align: center;
+    }
+    .col-t2-3 {
+      width: 12%;
+    }
+    .col-t2-4 {
+      width: 15%;
+      text-align: center;
+    }
+
+    .col-t3-1 {
+      width: 11%;
+    }
+    .col-t3-2 {
+      width: 50%;
+      text-align: center;
+    }
+    .col-t3-3 {
+      width: 8%;
+    }
+    .col-t3-4 {
+      width: 8%;
+    }
+    .col-t3-5 {
+      width: 8%;
+    }
+    .col-t3-6 {
+      width: 15%;
+    }
+
+    .col-t4-1 {
+      width: 5%;
+    }
+    .col-t4-2 {
+      width: 26%;
+    }
+    .col-t4-3 {
+      width: 9%;
+    }
+    .col-t4-4 {
+      width: 19%;
+    }
+
+    .col-t4-5 {
+      width: 6%;
+    }
+    .col-t4-6 {
+      width: 10%;
+    }
+    .col-t4-7 {
+      width: 11%;
+    }
+    .col-t4-8 {
+      width: 14%;
+    }
+
+    .col-t5-1 {
+      width: 30%;
+    }
+    .col-t5-2 {
+      width: 70%;
+    }
+
+    .col-t6-1 {
+      width: 6%;
+    }
+    .col-t6-2 {
+      width: 7%;
+    }
+    .col-t6-3 {
+      width: 6%;
+    }
+    .col-t6-4 {
+      width: 4%;
+    }
+    .col-t6-5 {
+      width: 78%;
+    }
+
+    .col-t7-1 {
+      width: 8%;
+    }
+    .col-t7-2 {
+      width: 9%;
+    }
+    .col-t7-3 {
+      width: 1%;
+    }
+    .col-t7-4 {
+      width: 9%;
+    }
+    .col-t7-5 {
+      width: 1%;
+    }
+    .col-t7-6 {
+      width: 10%;
+    }
+    .col-t7-7 {
+      width: 3%;
+    }
+    .col-t7-8 {
+      width: 8%;
+    }
+    .col-t7-9 {
+      width: 9%;
+    }
+    .col-t7-10 {
+      width: 1%;
+    }
+    .col-t7-11 {
+      width: 9%;
+    }
+    .col-t7-12 {
+      width: 1%;
+    }
+    .col-t7-13 {
+      width: 10%;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <table cellpadding="2" cellspacing="0" border="0">
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-text-center col-italic">Приложение 50</td>
+        </tr>
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-text-center col-italic">
+            к приказу Министра финансов
+          </td>
+        </tr>
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-text-center col-italic">Республики Казахстан</td>
+        </tr>
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-text-center col-italic">
+            от 20 декабря 2012 года № 562
+          </td>
+        </tr>
+        <tr style="height: 15px">
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="col-t1-1"></td>
+          <td class="col-text-right">Форма Р-1</td>
+        </tr>
+      </table>
+      <br />
+
+      <table cellpadding="3" cellspacing="3">
+        <tr>
+          <td class="col-t2-1"></td>
+          <td class="col-t2-2"></td>
+          <td class="col-t2-3"></td>
+          <td class="col-t2-4">ИИН/БИН</td>
+        </tr>
+        <tr>
+          <td class="col-t2-1">Заказчик</td>
+          <td class="col-t2-2 col-bold col-border-bottom col-yellow">
+            {{ fullName }}
+          </td>
+          <td class="col-t2-3"></td>
+          <td class="col-t2-4 col-bold col-border-all col-yellow">
+            {{ .OsiIDN}}
+          </td>
+        </tr>
+        <tr>
+          <td class="col-t2-1"></td>
+          <td class="col-t2-2 col-italic">
+            полное наименование, адрес, данные о средствах связи
+          </td>
+          <td class="col-t2-3"></td>
+          <td class="col-t2-4"></td>
+        </tr>
+        <tr>
+          <td class="col-t2-1">Исполнитель</td>
+          <td class="col-t2-2 col-bold col-border-bottom">
+            ТОО "OSI billing (ОСИ биллинг)", Республика Казахстан, г. Актобе,
+            ул. Бр. Жубановых, 207А
+          </td>
+          <td class="col-t2-3"></td>
+          <td class="col-t2-4 col-bold col-border-all">210540024187</td>
+        </tr>
+        <tr>
+          <td class="col-t2-1"></td>
+          <td class="col-t2-2 col-italic">
+            полное наименование, адрес, данные о средствах связи
+          </td>
+          <td class="col-t2-3"></td>
+          <td class="col-t2-4"></td>
+        </tr>
+      </table>
+
+      <table cellpadding="3" cellspacing="3" class="no_double">
+        <tr>
+          <td class="col-t3-1">Договор (контракт)</td>
+          <td class="col-t3-2 col-border-bottom col-yellow">
+            {{dateContract}}
+          </td>
+          <td class="col-t3-3"></td>
+          <td rowspan="2" class="col-t3-4 col-border-all col-text-center">
+            Номер документа
+          </td>
+          <td rowspan="2" class="col-t3-5 col-border-all col-text-center">
+            Дата составления
+          </td>
+          <td class="col-t3-6"></td>
+        </tr>
+        <tr>
+          <td class="col-t3-1"></td>
+          <td class="col-t3-2"></td>
+          <td class="col-t3-3"></td>
+          <td class="col-t3-4"></td>
+          <td class="col-t3-5"></td>
+          <td class="col-t3-6"></td>
+        </tr>
+        <tr>
+          <td
+            colspan="3"
+            class="col-t3-1 col-bold col-text-center"
+            style="font-size: 18px"
+          >
+            АКТ ВЫПОЛНЕННЫХ РАБОТ (ОКАЗАННЫХ УСЛУГ)
+          </td>
+
+          <td
+            class="col-t3-4 col-border-all col-text-center col-bold col-yellow"
+          >
+            {{ .ActNum}}
+          </td>
+          <td
+            class="col-t3-5 col-border-all col-text-center col-bold col-yellow"
+          >
+            {{ .ActPeriod}}
+          </td>
+          <td class="col-t3-6"></td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <table cellpadding="3" cellspacing="3" border="0" class="no_double">
+        <tr>
+          <th rowspan="2" class="col-t4-1 col-border-all">Номер по порядку</th>
+          <th rowspan="2" class="col-t4-2 col-border-all">
+            Наименование работ (услуг) (в разрезе их подвидов в соответствии с
+            технической спецификацией, заданием, графиком выполнения работ
+            (услуг) при их наличии)
+          </th>
+          <th rowspan="2" class="col-t4-3 col-border-all">
+            Дата выполнения работ (оказания услуг)
+          </th>
+          <th rowspan="2" class="col-t4-4 col-border-all">
+            Сведения об отчете о научных исследованиях, маркетинговых,
+            консультационных и прочих услугах (дата, номер, количество страниц)
+            (при их наличии)
+          </th>
+          <th rowspan="2" class="col-t4-5 col-border-all">Единица измерения</th>
+          <th colspan="3" class="col-t4-6 col-border-all">
+            Выполнено работ (оказано услуг)
+          </th>
+        </tr>
+        <tr>
+          <th class="col-t4-6 col-border-all">количество</th>
+          <th class="col-t4-7 col-border-all">цена за единицу</th>
+          <th class="col-t4-8 col-border-all">стоимость</th>
+        </tr>
+        <tr>
+          <th class="col-t4-1 col-border-all">1</th>
+          <th class="col-t4-2 col-border-all">2</th>
+          <th class="col-t4-3 col-border-all">3</th>
+          <th class="col-t4-4 col-border-all">4</th>
+          <th class="col-t4-5 col-border-all">5</th>
+          <th class="col-t4-6 col-border-all">6</th>
+          <th class="col-t4-7 col-border-all">7</th>
+          <th class="col-t4-8 col-border-all">8</th>
+        </tr>
+        <tr>
+          <td class="col-t4-1 col-text-center col-border-all">1</td>
+          <td class="col-t4-2 col-yellow col-border-all">
+            Услуги системы "ОСИ биллинг" за {{getPeriod}} .
+          </td>
+          <td class="col-t4-3 col-border-all"></td>
+          <td class="col-t4-4 col-border-all"></td>
+          <td class="col-t4-5 col-border-all"></td>
+          <td class="col-t4-6 col-yellow col-text-right col-border-all">
+            {{ .ApartCount }}
+          </td>
+          <td class="col-t4-7 col-text-right col-border-all">{{ formatAmount .Tariff }}</td>
+          <td class="col-t4-8 col-yellow col-text-right col-border-all">
+            {{ formatAmount .Amount }}
+          </td>
+        </tr>
+        <!-- <tr>
+          <td class="col-t4-1 col-text-center col-border-all">2</td>
+          <td class="col-t4-2 col-yellow col-border-all">Скидка 50%</td>
+          <td class="col-t4-3 col-border-all"></td>
+          <td class="col-t4-4 col-border-all"></td>
+          <td class="col-t4-5 col-border-all"></td>
+          <td class="col-t4-6 col-yellow col-text-right col-border-all"></td>
+          <td class="col-t4-7 col-text-right col-border-all"></td>
+          <td class="col-t4-8 col-yellow col-text-right col-border-all">
+            {{formatAmount discount}}
+          </td>
+        </tr> -->
+        <tr>
+          <td colspan="5" class="col-t4-5 col-text-right">Итого</td>
+          <td class="col-t4-6 col-text-right col-border-all">
+            {{ .ApartCount }}
+          </td>
+          <td class="col-t4-7 col-text-right col-border-all">x</td>
+          <td class="col-t4-8 col-yellow col-text-right col-border-all">
+            {{ formatAmount .Amount }}
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+      <br />
+
+      <table cellpadding="2" cellspacing="0" border="0">
+        <tr>
+          <td class="col-t5-1">
+            Сведения об использовании запасов, полученных от заказчика
+          </td>
+          <td class="col-t5-2 col-border-bottom"></td>
+        </tr>
+        <tr>
+          <td class="col-t5-1"></td>
+          <td class="col-t5-2 col-text-center">
+            наименование, количество, стоимость
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+      <br />
+
+      <table cellpadding="2" cellspacing="0" border="0">
+        <tr>
+          <td colspan="5" class="col-t6-1">
+            Приложение: Перечень документации, в том числе отчет(ы) о
+            маркетинговых, научных исследованиях, консультационных и прочих
+            услугах (обязательны при его
+          </td>
+        </tr>
+        <tr>
+          <td class="col-t6-1"></td>
+          <td class="col-t6-2">(их) наличии) на</td>
+          <td class="col-t6-3 col-border-bottom"></td>
+          <td class="col-t6-4 col-text-center">страниц</td>
+          <td class="col-t6-5 col-border-bottom"></td>
+        </tr>
+      </table>
+      <br /><br />
+      <br />
+      <table cellpadding="2" cellspacing="0" border="0">
+        <tr>
+          <td class="col-t7-1">Сдал (Исполнитель)</td>
+          <td class="col-t7-2 col-border-bottom">Директор</td>
+          <td class="col-t7-3 col-text-center">/</td>
+          <td class="col-t7-4 col-border-bottom"></td>
+          <td class="col-t7-5 col-text-center">/</td>
+          <td class="col-t7-6 col-border-bottom">Воронюк Н. В.</td>
+          <td class="col-t7-7"></td>
+          <td class="col-t7-8">Принял (Заказчик)</td>
+          <td class="col-t7-9 col-border-bottom"></td>
+          <td class="col-t7-10 col-text-center">/</td>
+          <td class="col-t7-11 col-border-bottom"></td>
+          <td class="col-t7-12 col-text-center">/</td>
+          <td class="col-t7-13 col-border-bottom"></td>
+        </tr>
+        <tr>
+          <td class="col-t7-1"></td>
+          <td class="col-t7-2 col-text-center col-italic">должность</td>
+          <td class="col-t7-3"></td>
+          <td class="col-t7-4 col-text-center col-italic">подпись</td>
+          <td class="col-t7-5"></td>
+          <td class="col-t7-6 col-text-center col-italic">
+            расшифровка подписи
+          </td>
+          <td class="col-t7-7"></td>
+          <td class="col-t7-8"></td>
+          <td class="col-t7-9 col-text-center col-italic">должность</td>
+          <td class="col-t7-10 col-text-center"></td>
+          <td class="col-t7-11 col-text-center col-italic">подпись</td>
+          <td class="col-t7-12 col-text-center"></td>
+          <td class="col-t7-13 col-text-center col-italic">
+            расшифровка подписи
+          </td>
+        </tr>
+        <tr>
+          <td style="height: 20px"></td>
+        </tr>
+        <tr>
+          <td class="col-t7-1 col-text-center col-bold">МП</td>
+          <td colspan="5" class="col-t7-2"></td>
+          <td colspan="4" class="col-t7-7">
+            Дата подписания (принятия) работ (услуг)
+          </td>
+          <td class="col-t7-11 col-text-center col-yellow col-border-bottom">
+            {{ .SignDt }}
+          </td>
+          <td class="col-t7-12 col-text-center"></td>
+          <td class="col-t7-13 col-text-center col-italic"></td>
+        </tr>
+        <tr>
+          <td style="height: 20px"></td>
+        </tr>
+        <tr>
+          <td class="col-t7-1"></td>
+          <td class="col-t7-2"></td>
+          <td class="col-t7-3"></td>
+          <td class="col-t7-4"></td>
+          <td class="col-t7-5"></td>
+          <td class="col-t7-6"></td>
+          <td class="col-t7-7 col-text-center col-bold">МП</td>
+          <td class="col-t7-8"></td>
+          <td class="col-t7-9"></td>
+          <td class="col-t7-10"></td>
+          <td class="col-t7-11"></td>
+          <td class="col-t7-12"></td>
+          <td class="col-t7-13"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

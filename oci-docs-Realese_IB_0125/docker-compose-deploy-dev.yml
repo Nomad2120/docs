@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+  pipeline:
+    container_name: "oci-docs-dev"
+    hostname: "oci-docs-host-dev"
+    image: "${DOCKER_IMAGE_SHA}"
+    env_file:
+      - dev.env
+    ports:
+      - 9091:8091
+    restart: always
+    networks:
+      - ocinet
+
+networks:
+  ocinet:
+    name: ocinet

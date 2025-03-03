@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+  alpha:
+    container_name: "oci-docs-alpha"
+    hostname: "oci-docs-host-alpha"
+    image: "${DOCKER_IMAGE_SHA}"
+    env_file:
+      - alpha.env
+    ports:
+      - 9097:8091
+    restart: always
+    networks:
+      - ocinet
+
+networks:
+  ocinet:
+    name: ocinet
